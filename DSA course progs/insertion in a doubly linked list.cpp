@@ -48,10 +48,11 @@ struct linkedlist
         {
             temp=temp->next;
         }
-        t->next=temp->next;
-        temp->next=t;
-        t->prev=temp;
-        t->next->prev=t;
+        t->next=temp;
+      t->next=temp->next;
+      if(temp->next)
+        temp->next->prev=t;
+      temp->next=t;
         temp=head;
         return temp;
     }
